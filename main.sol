@@ -222,3 +222,115 @@ contract ConstalEval is NovaPausable, PrismReentrancyGuard {
     event PhaseSignal45(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
     event PhaseSignal46(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
     event PhaseSignal47(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal48(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal49(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal50(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal51(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal52(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal53(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal54(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal55(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal56(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal57(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal58(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal59(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal60(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal61(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal62(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal63(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal64(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal65(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal66(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal67(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal68(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal69(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal70(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal71(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal72(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal73(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal74(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal75(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal76(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal77(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal78(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal79(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal80(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal81(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal82(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal83(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal84(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal85(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal86(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal87(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal88(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal89(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal90(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal91(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal92(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal93(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal94(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal95(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal96(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal97(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal98(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal99(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal100(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal101(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal102(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal103(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal104(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal105(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal106(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal107(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal108(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal109(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal110(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal111(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal112(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal113(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal114(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal115(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal116(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal117(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal118(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal119(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal120(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+
+    function phaseProbe1(uint48 routeId, bytes32 pulse, uint256 vector, uint64 horizon, bool amplified) external onlyOperator whenNotPaused {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
+        if (horizon > block.timestamp + 90 days) revert CE_FutureEpoch();
+        if (vector > type(uint224).max) revert CE_TooLarge();
+        bytes32 key = keccak256(abi.encodePacked(routeId, pulse, vector, horizon, amplified, 1));
+        laneTags[key] = true;
+        emit PhaseSignal1(pulse, vector, horizon, amplified);
+    }
+
+    function phaseProbe2(uint48 routeId, bytes32 pulse, uint256 vector, uint64 horizon, bool amplified) external onlyOperator whenNotPaused {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
+        if (horizon > block.timestamp + 90 days) revert CE_FutureEpoch();
+        if (vector > type(uint224).max) revert CE_TooLarge();
+        bytes32 key = keccak256(abi.encodePacked(routeId, pulse, vector, horizon, amplified, 2));
+        laneTags[key] = true;
+        emit PhaseSignal2(pulse, vector, horizon, amplified);
+    }
+
+    function phaseProbe3(uint48 routeId, bytes32 pulse, uint256 vector, uint64 horizon, bool amplified) external onlyOperator whenNotPaused {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
+        if (horizon > block.timestamp + 90 days) revert CE_FutureEpoch();
+        if (vector > type(uint224).max) revert CE_TooLarge();
+        bytes32 key = keccak256(abi.encodePacked(routeId, pulse, vector, horizon, amplified, 3));
+        laneTags[key] = true;
+        emit PhaseSignal3(pulse, vector, horizon, amplified);
+    }
+
+    function phaseProbe4(uint48 routeId, bytes32 pulse, uint256 vector, uint64 horizon, bool amplified) external onlyOperator whenNotPaused {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
+        if (horizon > block.timestamp + 90 days) revert CE_FutureEpoch();
+        if (vector > type(uint224).max) revert CE_TooLarge();
+        bytes32 key = keccak256(abi.encodePacked(routeId, pulse, vector, horizon, amplified, 4));
+        laneTags[key] = true;
+        emit PhaseSignal4(pulse, vector, horizon, amplified);
+    }
+
+    function phaseProbe5(uint48 routeId, bytes32 pulse, uint256 vector, uint64 horizon, bool amplified) external onlyOperator whenNotPaused {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
