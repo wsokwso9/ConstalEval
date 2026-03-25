@@ -110,3 +110,115 @@ contract ConstalEval is NovaPausable, PrismReentrancyGuard {
         deployedAt = uint64(block.timestamp);
         treasury = treasury_; ledgerAnchor = ledgerAnchor_; mirrorRelay = mirrorRelay_; feeBps = initialFeeBps;
         operators[initialOwner] = true;
+        emit OperatorSet(initialOwner, true);
+        emit TrackerBootstrapped(laneHash, initialOwner, deploymentEntropy);
+    }
+
+    receive() external payable { accruedFees += msg.value; }
+    function setOperator(address operator, bool enabled) external onlyOwner { if (operator == address(0)) revert CE_BadAddress(); operators[operator] = enabled; emit OperatorSet(operator, enabled); }
+    function setFeeBps(uint16 nextFeeBps) external onlyOwner { if (nextFeeBps > MAX_FEE_BPS) revert CE_InvalidFee(); uint16 prev = feeBps; feeBps = nextFeeBps; emit FeeTweaked(prev, nextFeeBps); }
+    function setTreasury(address nextTreasury) external onlyOwner { if (nextTreasury == address(0)) revert CE_BadAddress(); address prev = treasury; treasury = nextTreasury; emit TreasuryShifted(prev, nextTreasury); }
+    function setLedgerAnchor(address nextAnchor) external onlyOwner { if (nextAnchor == address(0)) revert CE_BadAddress(); address prev = ledgerAnchor; ledgerAnchor = nextAnchor; emit LedgerAnchorChanged(prev, nextAnchor); }
+    function setMirrorRelay(address nextRelay) external onlyOwner { if (nextRelay == address(0)) revert CE_BadAddress(); address prev = mirrorRelay; mirrorRelay = nextRelay; emit MirrorRelayChanged(prev, nextRelay); }
+
+    function configureRoute(uint48 routeId, uint32 cadence, uint16 confidenceFloorBps, uint8 channel, bool live) external onlyOperator {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
+        if (cadence < MIN_WINDOW || cadence > MAX_WINDOW) revert CE_WindowOutOfBounds();
+        if (confidenceFloorBps > MAX_BPS) revert CE_InvalidFee();
+        RouteConfig storage rc = routes[routeId];
+        rc.cadence = cadence;
+        rc.confidenceFloorBps = confidenceFloorBps;
+        rc.channel = channel;
+        rc.live = live;
+        emit RoutePaced(routeId, cadence, confidenceFloorBps, live);
+    }
+
+    function uploadBeacon(uint48 routeId, bytes32 beaconId, uint96 score, uint32 drift, uint16 confidenceBps, uint8 channel, uint64 seenAt, bool finalized) external payable onlyOperator whenNotPaused nonReentrant {
+        if (score == 0) revert CE_TooLarge();
+        if (confidenceBps > MAX_BPS) revert CE_InvalidFee();
+        uint256 nowTs = block.timestamp;
+        if (seenAt > nowTs + 120) revert CE_FutureEpoch();
+        RouteConfig storage rc = routes[routeId];
+        if (!rc.live) revert CE_InvalidRoute();
+        if (confidenceBps < rc.confidenceFloorBps) revert CE_InvalidRoute();
+
+        uint256 toll = _computeIngressFee(score, confidenceBps);
+        if (msg.value < toll) revert CE_InvalidFee();
+
+        BeaconFrame storage frame = beaconFrames[beaconId];
+        frame.score = score;
+        frame.timestamp = seenAt == 0 ? uint64(nowTs) : seenAt;
+        frame.drift = drift;
+        frame.confidenceBps = confidenceBps;
+        frame.channel = channel;
+        frame.finalized = finalized;
+        rc.lastPulse = uint64(nowTs);
+        _routeBeacons[routeId].push(beaconId);
+        accruedFees += msg.value;
+        emit BeaconUploaded(beaconId, routeId, score, drift, frame.timestamp);
+    }
+
+    function harvestFees(uint256 amount) external nonReentrant onlyOwner {
+        uint256 fees = accruedFees;
+        if (amount == 0 || amount > fees) revert CE_TooLarge();
+        accruedFees = fees - amount;
+        (bool ok,) = treasury.call{value: amount}("");
+        require(ok, "CE: treasury transfer failed");
+        emit FeeHarvested(msg.sender, amount);
+    }
+    function beaconCountByRoute(uint48 routeId) external view returns (uint256) { return _routeBeacons[routeId].length; }
+    function beaconAt(uint48 routeId, uint256 index) external view returns (bytes32) { return _routeBeacons[routeId][index]; }
+    function _computeIngressFee(uint96 score, uint16 confidenceBps) internal view returns (uint256) {
+        uint256 variablePart = uint256(score) * uint256(feeBps) / MAX_BPS;
+        uint256 confidencePart = uint256(confidenceBps) * 1e11;
+        uint256 floorPart = (block.basefee + 1 gwei) * 3;
+        return variablePart / 1e8 + confidencePart + floorPart;
+    }
+
+    event PhaseSignal1(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal2(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal3(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal4(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal5(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal6(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal7(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal8(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal9(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal10(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal11(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal12(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal13(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal14(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal15(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal16(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal17(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal18(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal19(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal20(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal21(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal22(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal23(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal24(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal25(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal26(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal27(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal28(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal29(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal30(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal31(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal32(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal33(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal34(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal35(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal36(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal37(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal38(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal39(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal40(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal41(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal42(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal43(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal44(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal45(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal46(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
+    event PhaseSignal47(bytes32 indexed pulse, uint256 vector, uint64 horizon, bool amplified);
