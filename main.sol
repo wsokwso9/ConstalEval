@@ -782,3 +782,115 @@ contract ConstalEval is NovaPausable, PrismReentrancyGuard {
         emit PhaseSignal54(pulse, vector, horizon, amplified);
     }
 
+    function phaseProbe55(uint48 routeId, bytes32 pulse, uint256 vector, uint64 horizon, bool amplified) external onlyOperator whenNotPaused {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
+        if (horizon > block.timestamp + 90 days) revert CE_FutureEpoch();
+        if (vector > type(uint224).max) revert CE_TooLarge();
+        bytes32 key = keccak256(abi.encodePacked(routeId, pulse, vector, horizon, amplified, 55));
+        laneTags[key] = true;
+        emit PhaseSignal55(pulse, vector, horizon, amplified);
+    }
+
+    function phaseProbe56(uint48 routeId, bytes32 pulse, uint256 vector, uint64 horizon, bool amplified) external onlyOperator whenNotPaused {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
+        if (horizon > block.timestamp + 90 days) revert CE_FutureEpoch();
+        if (vector > type(uint224).max) revert CE_TooLarge();
+        bytes32 key = keccak256(abi.encodePacked(routeId, pulse, vector, horizon, amplified, 56));
+        laneTags[key] = true;
+        emit PhaseSignal56(pulse, vector, horizon, amplified);
+    }
+
+    function phaseProbe57(uint48 routeId, bytes32 pulse, uint256 vector, uint64 horizon, bool amplified) external onlyOperator whenNotPaused {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
+        if (horizon > block.timestamp + 90 days) revert CE_FutureEpoch();
+        if (vector > type(uint224).max) revert CE_TooLarge();
+        bytes32 key = keccak256(abi.encodePacked(routeId, pulse, vector, horizon, amplified, 57));
+        laneTags[key] = true;
+        emit PhaseSignal57(pulse, vector, horizon, amplified);
+    }
+
+    function phaseProbe58(uint48 routeId, bytes32 pulse, uint256 vector, uint64 horizon, bool amplified) external onlyOperator whenNotPaused {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
+        if (horizon > block.timestamp + 90 days) revert CE_FutureEpoch();
+        if (vector > type(uint224).max) revert CE_TooLarge();
+        bytes32 key = keccak256(abi.encodePacked(routeId, pulse, vector, horizon, amplified, 58));
+        laneTags[key] = true;
+        emit PhaseSignal58(pulse, vector, horizon, amplified);
+    }
+
+    function phaseProbe59(uint48 routeId, bytes32 pulse, uint256 vector, uint64 horizon, bool amplified) external onlyOperator whenNotPaused {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
+        if (horizon > block.timestamp + 90 days) revert CE_FutureEpoch();
+        if (vector > type(uint224).max) revert CE_TooLarge();
+        bytes32 key = keccak256(abi.encodePacked(routeId, pulse, vector, horizon, amplified, 59));
+        laneTags[key] = true;
+        emit PhaseSignal59(pulse, vector, horizon, amplified);
+    }
+
+    function phaseProbe60(uint48 routeId, bytes32 pulse, uint256 vector, uint64 horizon, bool amplified) external onlyOperator whenNotPaused {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
+        if (horizon > block.timestamp + 90 days) revert CE_FutureEpoch();
+        if (vector > type(uint224).max) revert CE_TooLarge();
+        bytes32 key = keccak256(abi.encodePacked(routeId, pulse, vector, horizon, amplified, 60));
+        laneTags[key] = true;
+        emit PhaseSignal60(pulse, vector, horizon, amplified);
+    }
+
+    function phaseProbe61(uint48 routeId, bytes32 pulse, uint256 vector, uint64 horizon, bool amplified) external onlyOperator whenNotPaused {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
+        if (horizon > block.timestamp + 90 days) revert CE_FutureEpoch();
+        if (vector > type(uint224).max) revert CE_TooLarge();
+        bytes32 key = keccak256(abi.encodePacked(routeId, pulse, vector, horizon, amplified, 61));
+        laneTags[key] = true;
+        emit PhaseSignal61(pulse, vector, horizon, amplified);
+    }
+
+    function phaseProbe62(uint48 routeId, bytes32 pulse, uint256 vector, uint64 horizon, bool amplified) external onlyOperator whenNotPaused {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
+        if (horizon > block.timestamp + 90 days) revert CE_FutureEpoch();
+        if (vector > type(uint224).max) revert CE_TooLarge();
+        bytes32 key = keccak256(abi.encodePacked(routeId, pulse, vector, horizon, amplified, 62));
+        laneTags[key] = true;
+        emit PhaseSignal62(pulse, vector, horizon, amplified);
+    }
+
+    function phaseProbe63(uint48 routeId, bytes32 pulse, uint256 vector, uint64 horizon, bool amplified) external onlyOperator whenNotPaused {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
+        if (horizon > block.timestamp + 90 days) revert CE_FutureEpoch();
+        if (vector > type(uint224).max) revert CE_TooLarge();
+        bytes32 key = keccak256(abi.encodePacked(routeId, pulse, vector, horizon, amplified, 63));
+        laneTags[key] = true;
+        emit PhaseSignal63(pulse, vector, horizon, amplified);
+    }
+
+    function phaseProbe64(uint48 routeId, bytes32 pulse, uint256 vector, uint64 horizon, bool amplified) external onlyOperator whenNotPaused {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
+        if (horizon > block.timestamp + 90 days) revert CE_FutureEpoch();
+        if (vector > type(uint224).max) revert CE_TooLarge();
+        bytes32 key = keccak256(abi.encodePacked(routeId, pulse, vector, horizon, amplified, 64));
+        laneTags[key] = true;
+        emit PhaseSignal64(pulse, vector, horizon, amplified);
+    }
+
+    function phaseProbe65(uint48 routeId, bytes32 pulse, uint256 vector, uint64 horizon, bool amplified) external onlyOperator whenNotPaused {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
+        if (horizon > block.timestamp + 90 days) revert CE_FutureEpoch();
+        if (vector > type(uint224).max) revert CE_TooLarge();
+        bytes32 key = keccak256(abi.encodePacked(routeId, pulse, vector, horizon, amplified, 65));
+        laneTags[key] = true;
+        emit PhaseSignal65(pulse, vector, horizon, amplified);
+    }
+
+    function phaseProbe66(uint48 routeId, bytes32 pulse, uint256 vector, uint64 horizon, bool amplified) external onlyOperator whenNotPaused {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
+        if (horizon > block.timestamp + 90 days) revert CE_FutureEpoch();
+        if (vector > type(uint224).max) revert CE_TooLarge();
+        bytes32 key = keccak256(abi.encodePacked(routeId, pulse, vector, horizon, amplified, 66));
+        laneTags[key] = true;
+        emit PhaseSignal66(pulse, vector, horizon, amplified);
+    }
+
+    function phaseProbe67(uint48 routeId, bytes32 pulse, uint256 vector, uint64 horizon, bool amplified) external onlyOperator whenNotPaused {
+        if (routeId == 0 || routeId > MAX_ROUTE_ID) revert CE_InvalidRoute();
+        if (horizon > block.timestamp + 90 days) revert CE_FutureEpoch();
+        if (vector > type(uint224).max) revert CE_TooLarge();
